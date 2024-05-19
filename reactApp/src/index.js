@@ -10,7 +10,7 @@ import AuthContextProvider from "./contexts/authContext";
 import SignUpPage from "./pages/signUpPage";
 import ProtectedRoutes from "./protectedRoutes";
 import Header from "./components/siteHeader";
-import TopRatedMoviesPage from "./pages/topRated";
+import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,26 +28,18 @@ const App = () => {
       <BrowserRouter>
         <AuthContextProvider>
           <Header />
-          <ul>
-            <li>
-              <Link to="/">Public</Link>
-            </li>
-            <li>
-              <Link to="/movies">Movies</Link>
-            </li>
-            <li>
-              <Link to="/moviez">Top Rated Movies</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
+          <ul style={{ fontFamily: "Montserrat" }}>
+            <Link style={{ padding: "10px", textDecoration: "none", color: "black", fontWeight: "bold" }} to="/">Public</Link>
+            <Link style={{ padding: "10px", textDecoration: "none", color: "black", fontWeight: "bold" }} to="/movies">Movies</Link>
+            <Link style={{ padding: "10px", textDecoration: "none", color: "black", fontWeight: "bold" }} to="/top-rated-movies">Top Rated Movies</Link>
+            <Link style={{ padding: "10px", textDecoration: "none", color: "black", fontWeight: "bold" }} to="/profile">Profile</Link>
           </ul>
           <Routes>
             <Route path="/" element={<PublicPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/moviez" element={ <TopRatedMoviesPage /> } />
+            <Route path="/top-rated-movies" element={<TopRatedMoviesPage />} />
             <Route element={<ProtectedRoutes />}>
-            <Route path="/signup" element={ <SignUpPage /> } />
+              <Route path="/signup" element={<SignUpPage />} />
               <Route path="/movies" element={<MoviesPage />} />
               <Route path="/profile" element={<ProfilePage />} />
             </Route>
@@ -59,5 +51,5 @@ const App = () => {
   );
 };
 
-const rootElement = createRoot( document.getElementById("root") )
+const rootElement = createRoot(document.getElementById("root"));
 rootElement.render(<App />);

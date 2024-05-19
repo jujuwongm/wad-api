@@ -15,10 +15,10 @@ export const getTopRatedMovies = async () => {
     headers: {
       'Authorization': window.localStorage.getItem('token')
     }
-  }
-  )
+  });
   return response.json();
 };
+
 
 
   export const login = async (username, password) => {
