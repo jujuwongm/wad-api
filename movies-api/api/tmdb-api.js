@@ -7,7 +7,7 @@ export const getUpcomingMovies = async () => {
         );
 
         if (!response.ok) {
-            throw new Error(response.json().message);
+            throw new Error((await response.json()).message);
         }
 
         return await response.json();
@@ -16,10 +16,10 @@ export const getUpcomingMovies = async () => {
     }
 };
 
-const getTopRatedMovies = async () => {
+export const getTopRatedMoviesFromTMDB = async () => {
     try {
         const response = await fetch(
-            `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&sort_by=vote_average.desc`
+            `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB_KEY}&language=en-US&page=1`
         );
 
         if (!response.ok) {

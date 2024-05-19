@@ -36,7 +36,7 @@ const App = () => {
               <Link to="/movies">Movies</Link>
             </li>
             <li>
-              <Link to="/top-rated-movies">Top Rated Movies</Link>
+              <Link to="/moviez">Top Rated Movies</Link>
             </li>
             <li>
               <Link to="/profile">Profile</Link>
@@ -45,9 +45,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<PublicPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/top-rated-movies" element={<TopRatedMoviesPage />} />
+            <Route path="/moviez" element={ <TopRatedMoviesPage /> } />
             <Route element={<ProtectedRoutes />}>
-              <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/signup" element={ <SignUpPage /> } />
               <Route path="/movies" element={<MoviesPage />} />
               <Route path="/profile" element={<ProfilePage />} />
             </Route>
@@ -59,5 +59,5 @@ const App = () => {
   );
 };
 
-const rootElement = createRoot(document.getElementById("root"));
+const rootElement = createRoot( document.getElementById("root") )
 rootElement.render(<App />);

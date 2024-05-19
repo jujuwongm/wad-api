@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import { getTopRatedMovies } from '../api/movies-api';
 
 const TopRatedMoviesPage = () => {
-    const { data, error, isLoading, isError } = useQuery('topRatedMovies', getTopRatedMovies);
+    const { data, error, isLoading, isError } = useQuery('topRated', getTopRatedMovies);
 
     if (isLoading) {
         return <h1>Loading...</h1>;
@@ -13,10 +13,10 @@ const TopRatedMoviesPage = () => {
         return <h1>{error.message}</h1>;
     }
 
-    const topRatedMovies = data.results;
-    const topRatedMoviesDisplay = (
+    const moviez = data.results; // Adjust if necessary based on the API response structure
+    const moviesDisplay = (
         <div>
-            {topRatedMovies.map(movie => (
+            {moviez.map(movie => (
                 <li key={movie.id}>{movie.id}, {movie.title}<br /></li>
             ))}
         </div>
@@ -25,7 +25,7 @@ const TopRatedMoviesPage = () => {
     return (
         <div>
             <h2>Top Rated Movies</h2>
-            {topRatedMoviesDisplay}
+            {moviesDisplay}
         </div>
     );
 };
