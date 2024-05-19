@@ -10,6 +10,7 @@ import AuthContextProvider from "./contexts/authContext";
 import SignUpPage from "./pages/signUpPage";
 import ProtectedRoutes from "./protectedRoutes";
 import Header from "./components/siteHeader";
+import TopRatedMoviesPage from "./pages/topRated";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,13 +36,16 @@ const App = () => {
               <Link to="/movies">Movies</Link>
             </li>
             <li>
+              <Link to="/moviez">Top Rated Movies</Link>
+            </li>
+            <li>
               <Link to="/profile">Profile</Link>
             </li>
           </ul>
           <Routes>
             <Route path="/" element={<PublicPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={ <SignUpPage /> } />
+            <Route path="/moviez" element={ <TopRatedMoviesPage /> } />
             <Route element={<ProtectedRoutes />}>
             <Route path="/signup" element={ <SignUpPage /> } />
               <Route path="/movies" element={<MoviesPage />} />

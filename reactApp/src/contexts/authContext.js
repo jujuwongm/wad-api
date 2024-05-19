@@ -27,11 +27,13 @@ const AuthContextProvider = (props) => {
   const register = async (username, password) => {
     const result = await signup(username, password);
     console.log(result.code);
-    return (result.code == 201) ? true : false;
+    return (result.code === 201) ? true : false;
   };
 
   const signout = () => {
-    setTimeout(() => setIsAuthenticated(false), 100);
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+    setAuthToken(null);
   }
 
   return (
