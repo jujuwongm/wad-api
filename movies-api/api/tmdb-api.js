@@ -19,7 +19,7 @@ export const getUpcomingMovies = async () => {
 export const getTopRatedMovies = async () => {
     try {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&sort_by=vote_average.desc`
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.TMDB_KEY}&language=en-US&page=1`
       );
   
       if (!response.ok) {

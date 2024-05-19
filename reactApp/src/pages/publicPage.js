@@ -1,5 +1,5 @@
 const PublicPage = () => {
-    return <h2>Public page</h2>
+    return <h2 style={{fontFamily: "montserrat"}}>Public page</h2>
  }
 
  export default PublicPage;

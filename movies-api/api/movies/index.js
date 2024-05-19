@@ -27,11 +27,14 @@ router.get('/tmdb/upcoming', asyncHandler(async (req, res) => {
     res.status(200).json(upcomingMovies);
 }));
 
-// Get top-rated movies from TMDb
-router.get('/tmdb/top-rated', asyncHandler(async (req, res) => {
-    const topRatedMovies = await getTopRatedMovies();
-    res.status(200).json(topRatedMovies);
+// Get top-rated movies from TMDB
+router.get('/topmovies', asyncHandler(async (req, res) => {
+    try {
+      const topRatedMovies = await getTopRatedMovies();
+      res.status(200).json(topRatedMovies);
+    } catch (error) {
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
   }));
   
-
 export default router;
