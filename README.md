@@ -6,7 +6,7 @@ Number: 20095922
 ## Features
 
  + Photo upload on profile - updates the photo but doesn't store it
- + Movie poster display on profile
+ + Movie poster display on profile - from 
  + Username display from context
  + Home page shows the posters using movie cards from Assignment 1
  + Updated the font all over to Montserrat
